@@ -14,7 +14,7 @@
           '[可播放]'}
  ```
 
- - 海南大学新闻(hainu_edu_news.py), 爬取数据格式为:
+ - 海南大学新闻(hainu_edu_news.py), 爬取数据格式(Mongodb)为:
 
 ```python
  {
@@ -24,6 +24,22 @@
     "date" : "2017/2/8 12:12:00",
     "title" : "海南大学2017年新年贺词"
 }
+```
+
+- 链家北京二手房(lianjia_bj.py), 爬取格式数据格式为:
+
+```python
+{'area': '83.87平米',
+ 'average_price': '101348',
+ 'community': '东直门内北小街8号院 ',
+ 'decoration': '简装',
+ 'direction': '西',
+ 'focus_num': '60人关注',
+ 'link': 'http://bj.lianjia.com/ershoufang/101100919031.html',
+ 'model': '2室1厅',
+ 'price': '850',
+ 'title': '满五且一套房产，景山学校北校区划片范围 电梯直达',
+ 'watch_num': '共56次带看'}
 ```
 
 ## 使用方法:
