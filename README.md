@@ -2,8 +2,11 @@
 
 ## 本仓库主要用于存储Scrapy单只爬虫(非一个完整项目),现在包含以下爬虫:
 
- - 豆瓣电影TOP250(douban_movie_250.py), 爬取数据格式为:
-
+ - 豆瓣电影TOP250(douban_movie_250.py)
+ 
+ 使用最简单的构造链接的方式进行翻页, 对数据中的非法字符进行了简单的清理. 
+ 
+爬取数据格式为:
  ```python
 
  {'link': 'https://movie.douban.com/subject/1292215/',
@@ -14,7 +17,11 @@
           '[可播放]'}
  ```
 
- - 海南大学新闻(hainu_edu_news.py), 爬取数据格式(Mongodb)为:
+ - 海南大学新闻(hainu_edu_news.py)
+ 
+ 使用`crawlspider`对海南大学新闻板块的六个子板块进行的爬取, 对于各个板块不同的的HTML格式, 使用正则表达式进行数据的抽取. 
+ 
+ 爬取数据格式(Mongodb)为:
 
 ```python
  {
@@ -27,6 +34,9 @@
 ```
 
 - 链家北京二手房(lianjia_bj.py), 爬取格式数据格式为:
+
+使用`crawlspider`对北京链家二手房数据进行爬取, 以不同的城区作为入口, 使用`Rule`指定爬取规则, 使用Xpath配合正则表达式抽取数据.
+ 
 
 ```python
 {'area': '83.87平米',
@@ -44,7 +54,14 @@
 
 - 知乎登录(zhihu_login.py)
 
-使用五行代码登录知乎, 并保存cookies信息
+通过抓包分析登录过程, 使用`FormRequest`获取登录提交表单并模拟提交.
+登录之后的Cookies数据保存在Cookies Jar中, 默认在之后的所有链接中使用.
+
+使用方法:
+
+- 在`parser`函数中中的`formdata` 填入你的登录信息.
+- 使用 `python zhihu_login.py`启动爬虫.
+- 默认情况下打印知乎返回的登录状态码
 
 ## 使用方法:
 
